@@ -1,4 +1,7 @@
-/* ===== GLOBAL ===== */
+/* ========================= */
+/* ===== DESKTOP STYLE ===== */
+/* ========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +16,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ===== NAVBAR ===== */
+/* ===== NAVBAR (DESKTOP) ===== */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -42,7 +45,7 @@ body {
     color: #74fdf6;
 }
 
-/* ===== MAIN SECTION ===== */
+/* ===== SECTION ===== */
 section {
     padding: 140px 8%;
     text-align: center;
@@ -85,7 +88,7 @@ section {
     opacity: 0.8;
 }
 
-/* ===== PWM TEXT ===== */
+/* ===== PWM ===== */
 .pwm {
     font-size: 80px;
     margin: 30px 0 10px 0;
@@ -97,7 +100,7 @@ section {
     opacity: 0.9;
 }
 
-/* ===== TERMINAL BOX ===== */
+/* ===== TERMINAL ===== */
 .terminal {
     width: 60%;
     margin: 30px auto;
@@ -140,32 +143,25 @@ section {
     transform: scale(1.05);
 }
 
-/* ================================= */
-/* ===== MOBILE VERSION ===== */
-/* ================================= */
+/* ========================= */
+/* ===== MOBILE ONLY ===== */
+/* ========================= */
 
 @media (max-width:768px) {
 
-    /* navbar يصير عادي وما يثبت */
+    /* الناف بار ما يكون ثابت */
     .navbar {
         position: relative;
         flex-direction: column;
-        padding: 15px;
+        padding: 15px 20px;
     }
 
+    /* إخفاء روابط الناف بار */
     .nav-links {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 10px;
+        display: none;
     }
 
-    .nav-links span {
-        margin: 5px 0;
-        font-size: 14px;
-    }
-
-    /* section padding أقل */
+    /* تقليل المسافات */
     section {
         padding: 60px 20px;
     }
@@ -175,32 +171,33 @@ section {
         flex-direction: column;
         align-items: center;
         gap: 25px;
+        margin-top: 30px;
     }
 
     .flavor {
-        width: 140px;
-        height: 140px;
+        width: 120px;
+        height: 120px;
+        font-size: 14px;
     }
 
-    /* تصغير PWM */
+    /* تصغير العناوين */
     .pwm {
-        font-size: 45px;
+        font-size: 42px;
+    }
+
+    .start-screen h1 {
+        font-size: 28px;
+    }
+
+    .start-screen button {
+        width: 70%;
+        font-size: 16px;
     }
 
     /* التيرمنال أعرض */
     .terminal {
         width: 95%;
         font-size: 12px;
-    }
-
-    /* شاشة البداية */
-    .start-screen h1 {
-        font-size: 32px;
-    }
-
-    .start-screen button {
-        width: 70%;
-        font-size: 16px;
     }
 
 }
