@@ -210,3 +210,64 @@ section.active {
     background: #574fd6;
     transform: scale(1.05);
 }
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+
+    .start-screen h1 {
+        font-size: 40px;
+    }
+
+    .start-screen button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .nav-links span {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    .flavor-container {
+        gap: 15px;
+    }
+
+    .flavor {
+        width: 110px;
+        height: 110px;
+        font-size: 14px;
+    }
+
+    .pwm {
+        font-size: 55px;
+    }
+
+    .countdown {
+        font-size: 45px;
+    }
+
+    .terminal {
+        width: 90%;
+        font-size: 13px;
+        padding: 18px;
+    }
+
+    section {
+        padding: 50px 5%;
+    }
+
+}
