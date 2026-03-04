@@ -1,0 +1,212 @@
+/* خلفية متحركة */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(-45deg, #0f0f14, #16213e, #0f3460);
+    background-size: 400% 400%;
+    animation: bg 12s infinite;
+    color: white;
+    text-align: center;
+}
+
+@keyframes bg {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* شاشة البداية */
+.start-screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-screen h1 {
+    font-size: 60px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.start-screen button {
+    padding: 15px 40px;
+    background: #6c63ff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.start-screen button:hover {
+    background: #574fd6;
+    transform: scale(1.05);
+}
+
+/* الناف بار */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 8%;
+    background: rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(6px);
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.nav-links span {
+    margin-left: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-links span:hover {
+    color: #6c63ff;
+}
+
+.hidden {
+    display: none;
+}
+
+section {
+    display: none;
+    padding: 80px 8%;
+}
+
+section.active {
+    display: block;
+}
+
+/* دوائر النكهات */
+.flavor-container {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.flavor {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #1e1e2a;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 18px;
+}
+
+.flavor small {
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+.flavor:hover {
+    background: #6c63ff;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(108, 99, 255, 0.6);
+}
+
+/* العد التنازلي */
+.countdown {
+    font-size: 70px;
+    margin-top: 30px;
+    color: #ffcc00;
+    animation: fade 1s infinite;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* عداد PWM */
+.pwm {
+    font-size: 90px;
+    margin-top: 40px;
+    color: #7aa7ff;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        text-shadow: 0 0 10px #7aa7ff;
+    }
+
+    50% {
+        text-shadow: 0 0 30px #7aa7ff;
+    }
+
+    100% {
+        text-shadow: 0 0 10px #7aa7ff;
+    }
+}
+
+.pwm-info {
+    opacity: 0.8;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* صندوق التيرمنال */
+.terminal {
+    background: black;
+    color: #00ff88;
+    padding: 25px;
+    width: 70%;
+    margin: 40px auto;
+    font-family: monospace;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* زر الشرح */
+.explain {
+    margin-top: 20px;
+}
+
+.explain button {
+    padding: 10px 20px;
+    background: #6c63ff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.explain button:hover {
+    background: #574fd6;
+    transform: scale(1.05);
+}
