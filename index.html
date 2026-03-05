@@ -2,324 +2,292 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TasteSafe</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(-45deg, #0f0f14, #16213e, #0f3460);
-            background-size: 400% 400%;
-            animation: bg 12s infinite;
-            color: white;
-            text-align: center;
-        }
+    <title>AI Taste Signal</title>
 
-        @keyframes bg {
-            0% {
-                background-position: 0% 50%;
-            }
+    <link rel="stylesheet" href="style.css">
 
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .start-screen {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .start-screen h1 {
-            font-size: 60px;
-            margin-bottom: 30px;
-        }
-
-        .start-screen button {
-            padding: 15px 40px;
-            background: #6c63ff;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 18px;
-            border-radius: 8px;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 8%;
-            background: rgba(0, 0, 0, 0.5);
-            position: sticky;
-            top: 0;
-        }
-
-        .logo {
-            font-weight: bold;
-            font-size: 22px;
-        }
-
-        .nav-links span {
-            margin-left: 20px;
-            cursor: pointer;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        section {
-            display: none;
-            padding: 80px 8%;
-        }
-
-        section.active {
-            display: block;
-        }
-
-        .flavor-container {
-            display: flex;
-            gap: 25px;
-            justify-content: center;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .flavor {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: #1e1e2a;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .flavor:hover {
-            background: #6c63ff;
-            transform: scale(1.1);
-        }
-
-        .countdown {
-            font-size: 70px;
-            margin-top: 30px;
-            color: #ffcc00;
-        }
-
-        .pwm {
-            font-size: 90px;
-            margin-top: 40px;
-            color: #7aa7ff;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                text-shadow: 0 0 10px #7aa7ff;
-            }
-
-            50% {
-                text-shadow: 0 0 30px #7aa7ff;
-            }
-
-            100% {
-                text-shadow: 0 0 10px #7aa7ff;
-            }
-        }
-
-        .pwm-info {
-            opacity: 0.8;
-            margin-top: 10px;
-        }
-
-        .terminal {
-            background: black;
-            color: #00ff88;
-            padding: 25px;
-            width: 70%;
-            margin: 40px auto;
-            font-family: monospace;
-            border-radius: 12px;
-            box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
-            text-align: left;
-        }
-
-        .explain {
-            margin-top: 20px;
-        }
-
-        .explain button {
-            padding: 10px 20px;
-            background: #6c63ff;
-            border: none;
-            color: white;
-            cursor: pointer;
-            border-radius: 6px;
-        }
-    </style>
 </head>
 
 <body>
 
-    <!-- START SCREEN -->
-    <div id="startScreen" class="start-screen">
-        <h1>TasteSafe</h1>
-        <button onclick="enterSite()">Start Experience</button>
-    </div>
+    <!-- NAVBAR -->
 
-    <div id="mainSite" class="hidden">
+    <nav>
 
-        <nav id="navbar" class="navbar hidden">
-            <div class="logo">TasteSafe</div>
-            <div class="nav-links">
-                <span onclick="showSection('home')">Home</span>
-                <span onclick="showSection('what')">What is TasteSafe</span>
-                <span onclick="showSection('problem')">The Problem</span>
-                <span onclick="showSection('how')">How It Works</span>
-                <span onclick="showSection('future')">Future Vision</span>
-            </div>
-        </nav>
+        <h2>TestSafe</h2>
 
-        <section id="home" class="active">
-            <h1>Experience Digital Taste</h1>
-            <p>Select a flavor to simulate</p>
+        <ul>
 
-            <div class="flavor-container">
-                <div class="flavor" onclick="startSimulation('Sweet','Chocolate',130)">Sweet<br><small>Chocolate</small>
-                </div>
-                <div class="flavor" onclick="startSimulation('Sour','Lemon',200)">Sour<br><small>Lemon</small></div>
-                <div class="flavor" onclick="startSimulation('Bitter','Coffee',170)">Bitter<br><small>Coffee</small>
-                </div>
-                <div class="flavor" onclick="startSimulation('Salty','Cheese',60)">Salty<br><small>Cheese</small></div>
-            </div>
+            <li><a href="#experiment">Experiment</a></li>
+            <li><a href="#analysis">Analysis</a></li>
+            <li><a href="#problem">The Problem</a></li>
+            <li><a href="#how">How it Works</a></li>
 
-            <div id="countdown" class="countdown hidden"></div>
+        </ul>
 
-            <div id="pwmValue" class="pwm"></div>
-            <p class="pwm-info">PWM (Pulse Width Modulation) – Signal intensity control method</p>
+    </nav>
 
-            <div id="terminalBox" class="terminal hidden"></div>
+    <!-- HERO -->
 
-            <div id="explainBox" class="explain hidden"></div>
+    <section class="hero">
 
-        </section>
+        <h1>AI Taste Signal</h1>
 
-        <section id="what">
-            <h1>What is TasteSafe?</h1>
-            <p>Digital taste simulation prototype.</p>
-        </section>
-        <section id="problem">
-            <h1>The Problem</h1>
-            <p>Food allergies limit safe flavor experience.</p>
-        </section>
-        <section id="how">
-            <h1>How It Works</h1>
-            <p>Flavor → Digital Value → PWM → Electrical Signal → Taste</p>
-        </section>
-        <section id="future">
-            <h1>Future Vision</h1>
-            <p>Future wearable integration.</p>
-        </section>
+        <p id="typing"></p>
 
-    </div>
+        <button class="start-btn" onclick="scrollToExperiment()">
+            Start Experiment
+        </button>
+
+    </section>
+
+    <!-- PROBLEM -->
+
+    <section id="problem">
+
+        <h2>The Problem</h2>
+
+        <p class="problem-text">
+
+            Food flavors are complex chemical signals.
+            Humans taste them using biological sensors.
+
+            But what if flavor could be simulated digitally
+            using signal patterns before real AI tasting systems exist?
+
+        </p>
+
+    </section>
+
+    <!-- EXPERIMENT -->
+
+    <section id="experiment">
+
+        <div class="orb"></div>
+
+        <div class="search-box">
+
+            <input id="foodInput" placeholder="Enter food..." />
+
+            <button class="analyze" onclick="analyzeFood()">
+                Analyze
+            </button>
+
+        </div>
+
+        <!-- QUICK START -->
+
+        <div class="quick">
+
+            <button onclick="quick('chocolate')">Chocolate</button>
+            <button onclick="quick('lemon')">Lemon</button>
+            <button onclick="quick('coffee')">Coffee</button>
+            <button onclick="quick('pizza')">Pizza</button>
+
+        </div>
+
+    </section>
+
+    <!-- ANALYSIS RESULT -->
+
+    <section id="analysis">
+
+        <div class="result">
+
+            <h3>Flavor Signal</h3>
+
+            <div id="bars"></div>
+
+            <p id="pwm"></p>
+
+            <h4>Explain Result</h4>
+
+            <p id="explain"></p>
+
+        </div>
+
+    </section>
+
+    <!-- HOW IT WORKS -->
+
+    <section id="how">
+
+        <div class="how">
+
+            <h2>How it Works</h2>
+
+            <p>
+
+                The system maps food names to simulated flavor signals.
+
+                Each food generates different taste components:
+
+                Sweet
+                Sour
+                Salty
+                Bitter
+
+                These signals are represented using PWM-like values
+                to simulate intensity.
+
+                This experiment demonstrates a conceptual AI taste model.
+
+            </p>
+
+        </div>
+
+    </section>
 
     <script>
 
-        function enterSite() {
-            document.getElementById("startScreen").style.display = "none";
-            document.getElementById("mainSite").classList.remove("hidden");
+        const typingText = "Start the experiment — taste signals generated before real AI.";
+
+        let i = 0;
+
+        function typeEffect() {
+
+            if (i < typingText.length) {
+
+                document.getElementById("typing").innerHTML += typingText.charAt(i);
+
+                i++;
+
+                setTimeout(typeEffect, 40);
+
+            }
+
         }
 
-        function startSimulation(type, name, value) {
+        typeEffect();
 
-            document.getElementById("navbar").classList.remove("hidden");
 
-            let countdown = document.getElementById("countdown");
-            countdown.classList.remove("hidden");
-            countdown.innerHTML = "3";
+        function scrollToExperiment() {
 
-            let counter = 3;
-            let interval = setInterval(() => {
-                counter--;
-                if (counter > 0) {
-                    countdown.innerHTML = counter;
-                } else {
-                    clearInterval(interval);
-                    countdown.innerHTML = "Simulating...";
-                    setTimeout(() => {
-                        countdown.classList.add("hidden");
-                        runSimulation(type, name, value);
-                    }, 800);
+            document.getElementById("experiment").scrollIntoView({ behavior: "smooth" });
+
+        }
+
+
+        function quick(food) {
+
+            document.getElementById("foodInput").value = food;
+
+            analyzeFood();
+
+        }
+
+
+        const explanations = {
+
+            lemon: "Lemon produces a strong sour signal because of citric acid molecules stimulating sour receptors.",
+
+            chocolate: "Chocolate has strong sweet and mild bitter signals caused by sugar and cocoa compounds.",
+
+            coffee: "Coffee produces a strong bitter signal due to caffeine and roasted compounds.",
+
+            pizza: "Pizza creates balanced signals between salty, umami, and mild sweetness from tomato sauce.",
+
+            burger: "Burger has strong savory and salty signals due to fats and seasoning.",
+
+            apple: "Apples produce a mix of sweet and sour due to natural sugars and malic acid."
+
+        };
+
+
+        function analyzeFood() {
+
+            let food = document.getElementById("foodInput").value.toLowerCase();
+
+            let sweet = Math.floor(Math.random() * 80);
+            let sour = Math.floor(Math.random() * 80);
+            let salty = Math.floor(Math.random() * 80);
+            let bitter = Math.floor(Math.random() * 80);
+
+            document.getElementById("bars").innerHTML = `
+
+Sweet ${sweet}%
+
+<div class="bar"><div class="fill" style="width:${sweet}%"></div></div>
+
+Sour ${sour}%
+
+<div class="bar"><div class="fill" style="width:${sour}%"></div></div>
+
+Salty ${salty}%
+
+<div class="bar"><div class="fill" style="width:${salty}%"></div></div>
+
+Bitter ${bitter}%
+
+<div class="bar"><div class="fill" style="width:${bitter}%"></div></div>
+
+`;
+
+            let pwm = Math.floor((sweet + sour + salty + bitter) / 4);
+
+            document.getElementById("pwm").innerHTML =
+                "PWM Signal: " + pwm + " | Frequency: " + (200 + pwm) + "Hz";
+
+
+            document.getElementById("explain").innerHTML = explanations[food] || "This food generates a mixed flavor signal pattern based on simulated taste receptors.";
+
+            document.getElementById("analysis").scrollIntoView({ behavior: "smooth" });
+
+        }
+
+
+        /* PAGE NAVIGATION */
+
+        const hero = document.querySelector(".hero");
+        const experiment = document.getElementById("experiment");
+        const analysis = document.getElementById("analysis");
+        const problem = document.getElementById("problem");
+        const how = document.getElementById("how");
+
+        problem.style.display = "none";
+        how.style.display = "none";
+
+        const navLinks = document.querySelectorAll("nav a");
+
+        navLinks.forEach(link => {
+
+            link.addEventListener("click", function (e) {
+
+                const target = this.getAttribute("href");
+
+                if (target === "#problem" || target === "#how") {
+
+                    e.preventDefault();
+
+                    hero.style.display = "none";
+                    experiment.style.display = "none";
+                    analysis.style.display = "none";
+
+                    problem.style.display = "none";
+                    how.style.display = "none";
+
+                    document.querySelector(target).style.display = "block";
+
                 }
-            }, 1000);
-        }
 
-        function runSimulation(type, name, value) {
+                if (target === "#experiment" || target === "#analysis") {
 
-            animatePWM(value);
+                    hero.style.display = "block";
+                    experiment.style.display = "block";
+                    analysis.style.display = "block";
 
-            let terminal = document.getElementById("terminalBox");
-            terminal.classList.remove("hidden");
+                    problem.style.display = "none";
+                    how.style.display = "none";
 
-            let level = "Low";
-            if (value > 150) level = "High";
-            else if (value > 90) level = "Medium";
-
-            terminal.innerHTML =
-                "> Flavor Selected: " + type + " (" + name + ")<br>" +
-                "> Digital Value: " + value + "<br>" +
-                "> Converting to PWM signal...<br>" +
-                "> " + level + " intensity signal transmitted.<br>" +
-                "> Taste simulation active.";
-
-            let explain = document.getElementById("explainBox");
-            explain.classList.remove("hidden");
-            explain.innerHTML =
-                "<button onclick='explainResult(" + value + ")'>Explain This Result</button>";
-        }
-
-        function animatePWM(target) {
-            let element = document.getElementById("pwmValue");
-            let count = 0;
-            let interval = setInterval(() => {
-                count += 5;
-                if (count >= target) {
-                    count = target;
-                    clearInterval(interval);
                 }
-                element.innerHTML = "PWM " + count;
-            }, 10);
-        }
 
-        function explainResult(value) {
-            let box = document.getElementById("explainBox");
-            let level = "Low";
-            if (value > 150) level = "High";
-            else if (value > 90) level = "Medium";
-
-            box.innerHTML =
-                "<p>This PWM value indicates a <strong>" + level +
-                "</strong> intensity signal. Higher PWM increases pulse duration which enhances perceived taste stimulation.</p>";
-        }
-
-        function showSection(id) {
-            document.querySelectorAll("section").forEach(sec => {
-                sec.style.display = "none";
             });
-            document.getElementById(id).style.display = "block";
-        }
+
+        });
 
     </script>
 
